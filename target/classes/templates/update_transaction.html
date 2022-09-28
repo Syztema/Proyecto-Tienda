@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <title>Actualizacion de Transacciones</title>
+</head>
+<body>
+<div class="container">
+  <h1>Gestion de Transacciones</h1>
+  <hr>
+  <h2>Actualizacion de Transaccion</h2>
+  <form action="#" th:action="@{/saveTransaction}" th:object="${transaction}" method="POST">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="text" th:field="*{concept}" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{amount}" class="form-control mb-4 col-4">
+    <input type="date" th:field="*{createdAt}" class="form-control mb-4 col-4">
+    <button type="submit" class="btn btn-info col-2">Actualizar Transaccion</button>
+  </form>
+  <hr>
+  <a th:href="@{/transaction}">Volver a la Lista de Transacciones</a>
+</div>
+</body>
+</html>

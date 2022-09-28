@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Home Page</title>
+</head>
+<body>
+<main>
+    <div class="px-4 py-5 ny-5 text-center">
+        <img src="img/shop.png" class="nx-auto mb-4" height="100" alt="Tienda"/>
+        <h1 class="display-5 fw-bold">Sistema de Gestion Tienda Virtual</h1>
+        <div class="col-lg nx-auto">
+            <p class="lead mb-4">Bienvenido al sistema de gestion de nuestra tienda virtual, accede a las diferentes listas desde los botones. Hecha por DevCoders.</p>
+            <div sec:authorize="!isAuthenticated()">
+                <a th:href="@{/oauth2/authorization/auth0}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Iniciar Sesion</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <h3 th:text="'Bienvenido, ' + ${user.getEmail()}"></h3>
+                <a type="button" class="btn btn-primary btn-lg px-4 gap-3" th:href="@{/employee}">Empleados</a>
+                <a type="button" class="btn btn-primary btn-lg px-4 gap-3" th:href="@{/enterprise}">Empresas</a>
+                <a type="button" class="btn btn-primary btn-lg px-4 gap-3" th:href="@{/transaction}">Transacciones</a>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

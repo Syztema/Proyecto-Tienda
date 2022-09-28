@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <title>Actualizacion de Empresa</title>
+</head>
+<body>
+<div class="container">
+  <h1>Gestion de Empresas</h1>
+  <hr>
+  <h2>Actualizacion de Empresa</h2>
+  <form action="#" th:action="@{/saveEnterprise}" th:object="${enterprise}" method="POST">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{address}" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{document}" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{phone}" class="form-control mb-4 col-4">
+    <input type="date" th:field="*{createdAt}" class="form-control mb-4 col-4">
+    <button type="submit" class="btn btn-info col-2">Actualizar Empresa</button>
+  </form>
+  <hr>
+  <a th:href="@{/enterprise}">Volver a la Lista de Empresas</a>
+</div>
+</body>
+</html>
